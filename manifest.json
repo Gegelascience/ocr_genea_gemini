@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "IA Genea",
+    "version": "1.0",
+    "description": "A Chrome extension to analyze text archives.",
+
+    "permissions": [
+        "storage",
+        "activeTab"
+    ],
+    "options_page": "options.html",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_title": "IA Genea"
+    },
+    "icons": {
+        "16": "images/get_started16.png",
+        "48": "images/get_started48.png",
+        "128": "images/get_started128.png"
+    }
+}
