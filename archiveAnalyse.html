@@ -13,14 +13,12 @@
         <div  class="container">
           <input class="form-control w-50 d-inline" type="file" name="logFile" accept=".png" required>
 
-          
           <form id="formAnalysis">
             <h3 class="p-2"> Type d'analyse souhaitée</h3>
             <div class="form-check">
             <input class="form-check-input" type="radio" id="synthesisError" name="mode" value="synthesis" checked>
             <label class="form-check-label" for="synthesisError">Lecture du document</label>
           </div>
-          
           <div class="form-check">
             <input class="form-check-input" type="radio" name="mode" id="synthesisCustom" value="custom" >
             <label class="form-check-label" for="synthesisCustom">Recherche de mot clé</label>
@@ -28,12 +26,25 @@
           <input class="form-control w-50" type="text" name="keywordSearch" placeholder="Mots clés" hidden>
 
 
+          <h3 class="p-2"> Langue du document</h3>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="french" name="language" value="french" checked>
+            <label class="form-check-label" for="french">Français</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="latin" name="language" value="latin">
+            <label class="form-check-label" for="latin">Latin</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="latinFr" name="language" value="latin,french">
+            <label class="form-check-label" for="latinFr">Latin/Français</label>
+          </div>
+
           <h3 class="p-2"> Version de l'IA</h3>
             <div class="form-check">
             <input class="form-check-input" type="radio" id="geminibasic" name="iamodel" value="gemini-2.0-flash" checked>
             <label class="form-check-label" for="geminibasic">gemini-2.0-flash</label>
           </div>
-          
           <div class="form-check">
             <input class="form-check-input" type="radio" id="geminiBeta" name="iamodel" value="gemini-2.5-flash-preview-05-20" >
             <label class="form-check-label" for="geminiBeta">gemini-2.5-flash-preview-05-20</label>

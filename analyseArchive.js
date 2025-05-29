@@ -69,7 +69,7 @@ btn.addEventListener("click", () => {
 
             const keyword = getKeyword("keywordSearch",formTagElements["mode"].value);
             
-            
+            const langage = formTagElements["language"].value;
 
             geminiClient.analyseArchiveGemini(formTagElements["iamodel"].value, dataImg.split("base64,")[1], keyword).then((analyse) => {
                 console.log("Analyse", analyse);
