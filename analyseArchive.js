@@ -54,7 +54,6 @@ btn.addEventListener("click", () => {
         const fReader = new FileReader();
         console.log(document.getElementsByName("logFile"))
         fReader.readAsDataURL(document.getElementsByName("logFile")[0].files[0]);
-        //fReader.readAsArrayBuffer(document.getElementsByName("logFile")[0].files[0]);
         fReader.onloadend = function(event){
         
             const dataImg = event.target.result;
@@ -64,14 +63,11 @@ btn.addEventListener("click", () => {
 
             spinner.hidden = false;
 
-            // gemini-2.5-flash-preview-05-20
-            // gemini-2.0-flash
-
             const keyword = getKeyword("keywordSearch",formTagElements["mode"].value);
             
             const langage = formTagElements["language"].value;
 
-            geminiClient.analyseArchiveGemini(formTagElements["iamodel"].value, dataImg.split("base64,")[1], keyword).then((analyse) => {
+            geminiClient.analyseArchiveGemini(formTagElements["iamodel"].value, dataImg.split("base64,")[1], keyword,langage).then((analyse) => {
                 console.log("Analyse", analyse);
                 document.getElementById("analyse").innerHTML = analyse;
 
