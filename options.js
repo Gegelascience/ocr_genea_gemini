@@ -20,14 +20,14 @@ const saveOptions = () => {
 
     chrome.storage.local.set({ "my_gemini_log_key": gemini_key }).then(() => {
         console.log("Value is set");
-        alert("Options sauvegardées");
+        alert("clé sauvegardée");
       });
 
     const gemini_model = document.getElementById('geminiModel').value;
 
     chrome.storage.local.set({ "gemini_model": gemini_model }).then(() => {
         console.log("Value is set");
-        alert("Options sauvegardées");
+        alert("modèle sauvegardé");
       });
 }
 
