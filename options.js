@@ -2,9 +2,14 @@
 
 const restoreOptions = () => {
     chrome.storage.local.get(
-      { my_gemini_log_key: '' },
+      { 
+        my_gemini_log_key: '',
+        gemini_model: 'gemini-2.5-flash-preview-05-20'
+
+       },
       (items) => {
         document.getElementById('geminiKey').value = items.my_gemini_log_key;
+        document.getElementById('geminiModel').value = items.gemini_model;
       }
     );
   };
@@ -14,6 +19,13 @@ const saveOptions = () => {
     const gemini_key = document.getElementById('geminiKey').value;
 
     chrome.storage.local.set({ "my_gemini_log_key": gemini_key }).then(() => {
+        console.log("Value is set");
+        alert("Options sauvegardées");
+      });
+
+    const gemini_model = document.getElementById('geminiModel').value;
+
+    chrome.storage.local.set({ "gemini_model": gemini_model }).then(() => {
         console.log("Value is set");
         alert("Options sauvegardées");
       });

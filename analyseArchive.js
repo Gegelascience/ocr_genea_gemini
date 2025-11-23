@@ -15,6 +15,7 @@ const btn = document.getElementById("resumeLog")
 const spinner = document.getElementById("spinner")
 const formTagElements = document.getElementById("formAnalysis").elements;
 
+
 for (let index = 0; index < formTagElements["mode"].length; index++) {
     const radioBtn = formTagElements["mode"][index];
     radioBtn.addEventListener("change", () => {
@@ -45,9 +46,10 @@ btn.addEventListener("click", () => {
         return;
     }
 
-    chrome.storage.local.get(["my_gemini_log_key"]).then((result) => {
+    chrome.storage.local.get(["my_gemini_log_key","gemini_model"]).then((result) => {
 
         const GOOGLE_API_KEY = result.my_gemini_log_key;
+        const GEMINI_MODEL = result.gemini_model;
 
         const geminiClient = new GeminiLogAnalyseClient(GOOGLE_API_KEY);
 
@@ -68,7 +70,7 @@ btn.addEventListener("click", () => {
             const langage = formTagElements["language"].value;
             const mode = formTagElements["mode"].value 
 
-            geminiClient.analyseArchiveGemini(formTagElements["iamodel"].value, dataImg.split("base64,")[1], keyword,langage,mode ).then((analyse) => {
+            geminiClient.analyseArchiveGemini(GEMINI_MODEL, dataImg.split("base64,")[1], keyword,langage,mode ).then((analyse) => {
                 console.log("Analyse", analyse);
                 document.getElementById("analyse").innerHTML = analyse;
 
