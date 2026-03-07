@@ -4,7 +4,7 @@ const restoreOptions = () => {
     chrome.storage.local.get(
       { 
         my_gemini_log_key: '',
-        gemini_model: 'gemini-2.5-flash-preview-05-20'
+        gemini_model: 'gemini-2.5-flash'
 
        },
       (items) => {
